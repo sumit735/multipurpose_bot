@@ -10,6 +10,7 @@ bot.start((ctx) => ctx.reply('Welcome bro!!!!'))
 bot.help((ctx) => ctx.reply('Send me a sticker'))
 bot.on('sticker', (ctx) => ctx.reply('👍'))
 bot.hears('hi', (ctx) => ctx.reply('Hey there'))
+bot.hears('banda' || 'pela' || 'chodi', (ctx) => ctx.reply('Tu gandimara bedhua randi tate mendhi gehiba bhak mg'))
 
 
 
