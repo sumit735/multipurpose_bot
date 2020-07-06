@@ -29,5 +29,7 @@ bot.command('covid19', async (ctx) => {
     `);
 })
 
+// https://sumit735-bot.herokuapp.com/
+
 
 module.exports = bot
