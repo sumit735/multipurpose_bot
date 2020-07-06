@@ -1,11 +1,11 @@
-const { Telegraf } = require('telegraf');
+const { Composer } = require('micro-bot')
 const { getData } = require('./covid');
 const dotenv = require('dotenv');
 dotenv.config();
 
 
 
-const bot = new Telegraf(process.env.BOT_TOKEN)
+const bot = new Composer;
 bot.start((ctx) => ctx.reply('Welcome bro!!!!'))
 bot.help((ctx) => ctx.reply('Send me a sticker'))
 bot.on('sticker', (ctx) => ctx.reply('👍'))
@@ -28,4 +28,6 @@ bot.command('covid19', async (ctx) => {
 
     `);
 })
-bot.launch()
+
+
+module.exports = bot
