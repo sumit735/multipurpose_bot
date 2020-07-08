@@ -10,7 +10,7 @@ bot.start((ctx) => ctx.reply('Welcome bro!!!!'))
 bot.help((ctx) => ctx.reply('Send me a sticker'))
 bot.on('sticker', (ctx) => ctx.reply('👍'))
 bot.hears('hi', (ctx) => ctx.reply('Hey there'))
-bot.hears('banda' || 'pela' || 'chodi', (ctx) => ctx.reply('Tu gandimara bedhua randi tate mendhi gehiba bhak mg'))
+bot.hears('banda', (ctx) => ctx.reply('Tu gandimara bedhua randi tate mendhi gehiba bhak mg'))
 
 
 
@@ -18,14 +18,7 @@ bot.command('covid19', async (ctx) => {
     const data = await getData();
     console.log(data);
     // ctx.reply('we are fetching covid details');
-    ctx.reply(`
-        Country- India
-        Total Cases- ${data.active} 😵
-        Confirmed Cases- ${data.confirmed} 😢 
-        Deaths- ${data.deaths} 😭
-        New Cases Today- ${data.deltaconfirmed} 😱
-        New Recovered Cases Today - ${data.deltarecovered} 😍
-        New Death Tolls Today - ${data.deltadeaths} 😭 
+    ctx.reply(`Country- IndiaTotal Cases- ${data.active} /n 😵Confirmed Cases- ${data.confirmed} 😢 /n  Deaths- ${data.deaths} 😭 /n New Cases Today- ${data.deltaconfirmed} 😱 /n New Recovered Cases Today - ${data.deltarecovered} 😍 /n New Death Tolls Today - ${data.deltadeaths} 😭 
 
     `);
 })
