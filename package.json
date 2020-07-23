@@ -4,15 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "micro-bot"
+    "start": "micro-bot",
+    "dev" : "nodemon test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "captcha-cv-ocr": "^1.1.1",
     "dotenv": "^8.2.0",
     "micro-bot": "^2.5.3",
+    "node-fetch": "^2.6.0",
     "superagent": "^5.3.1",
     "telegraf": "^3.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
