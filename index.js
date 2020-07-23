@@ -30,32 +30,37 @@ bot.command('covid19', async (ctx) => {
 })
 
 bot.command('song', async (ctx) => {
-    let searchData = ctx.update.message.text.split(' ');
-    console.log(searchData[1]);
-    if(searchData[1] == '' || searchData[1] == undefined || searchData[1] == null) {
+    let searchData = ctx.update.message.text.replace('/song', '');
+    if(searchData == '' || searchData == undefined || searchData == null) {
         return ctx.reply('send the command with a song/album name');
     }
 
-    let response = await getSearchData(searchData[1]);
-    console.log(response.albums.data);
-    console.log(response.albums.data[0].id);
+    let response = await getSearchData(searchData);
+    console.log(response.songs.data[0]);
+    const searchDetails = response.songs.data[0];
+    let songId = searchDetails.id;
+    let getSongdetails = await getSongData(songId);
+    
+    console.log(getSongdetails);
+    console.log(getSongdetails[`${songId}`]);
 
-    let songDetails = await getSongData(response.albums.data[0].id);
+    let songDetails = getSongdetails[`${songId}`];
 
-    console.log(songDetails);
-
-    let song = songDetails.songs[0].media_preview_url;
+    let song = songDetails.media_preview_url;
     console.log(song);
-    image = songDetails.songs[0].image;
-    image = image.replace("150x150", "350x350");
+    image = songDetails.image;
+    image = image.replace("150x150", "250x250");
     song = song.replace("preview", "aac");
     song = song.replace("96_p.mp4", "320.mp4");
+
     
     console.log(song);
     ctx.replyWithPhoto(image);
-    ctx.reply(songDetails.songs[0].song);
-    ctx.replyWithAudio(song);
-})
+    ctx.reply(songDetails.song);
+    ctx.replyWithAudio(song, {
+        caption: songDetails.song
+    });
+});
 
 
 // https://sumit735-bot.herokuapp.com/
