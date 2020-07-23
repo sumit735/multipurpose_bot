@@ -1,3 +1,6 @@
+const superagent = require('superagent');
+
+
 const getSearchData = async (search) => {
     try{
         const response = await superagent.get(`https://www.jiosaavn.com/api.php?_format=json&__call=autocomplete.get&query=${search}`)
