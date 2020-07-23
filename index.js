@@ -1,5 +1,6 @@
 const { Composer } = require('micro-bot')
 const { getData } = require('./covid');
+const { getSearchData, getSongData } = require('./song');
 const dotenv = require('dotenv');
 dotenv.config();
 
