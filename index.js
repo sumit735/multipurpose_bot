@@ -20,12 +20,13 @@ bot.command('covid19', async (ctx) => {
     console.log(data);
     // ctx.reply('we are fetching covid details');
     ctx.replyWithHTML(
-        `Country- IndiaTotal Cases- ${data.active} 😵
-         Confirmed Cases- ${data.confirmed} 😢
-         Deaths- ${data.deaths} 😭
-         New Cases Today- ${data.deltaconfirmed} 😱
-         New Recovered Cases Today - ${data.deltarecovered} 😍
-         New Death Tolls Today - ${data.deltadeaths} 😭 `
+        `Country- India
+        Active Cases- ${data.active} 😢
+        Total Confirmed Cases- ${data.confirmed} 😵
+        Deaths- ${data.deaths} 😭
+        New Cases Today- ${data.deltaconfirmed} 😱
+        New Recovered Cases Today - ${data.deltarecovered} 😍
+        New Death Tolls Today - ${data.deltadeaths} 😭 `
     );
 })
 
